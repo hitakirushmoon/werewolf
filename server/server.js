@@ -10,8 +10,9 @@ app.use(express.static(`${__dirname}/../client`))
 const server = http.createServer(app)
 const io = socketio(server);
 
-io.on('conection', (sock) =>{
+io.on('connection', (sock) =>{
     sock.emit('msg', 'You are connected \\woooo/')
+    sock.on('msg', (text) => io.emit('msg', text))
 })
 
 server.on('error', (err) => {
