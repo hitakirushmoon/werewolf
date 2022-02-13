@@ -1,10 +1,8 @@
 {
   "name": "werewolf",
   "version": "1.0.0",
-  "devDependencies": {
-    "socket.io": "^4.4.1"
-  },
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "socket.io": "^4.4.1"
   }
 }
