@@ -11,7 +11,7 @@ const server = http.createServer(app)
 const io = socketio(server);
 
 io.on('conection', (sock) =>{
-    console.log('someone connected yay \\o/')
+    sock.emit('msg', 'You are connected \\woooo/')
 })
 
 server.on('error', (err) => {
