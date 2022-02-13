@@ -18,6 +18,7 @@ const onChatSubmitted = (e) => {
 };
 
 (() => {
+    const sock = io()
     log('hello!')
     document
         .querySelector('#chat-form')
