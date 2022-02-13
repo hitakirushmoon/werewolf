@@ -2,6 +2,7 @@ const BG_COLOR = '#231f20'
 const SNAKE_COLOR = '#c2c2c2'
 const FOOD_COLOR = '#ff0000'
 
+const socket = io('https://wherewolves.herokuapp.com:' + process.env.PORT, handleInit)
 const gameScreen = document.getElementById("gameScreen")
 let canvas, ctx
 const gameState = {
@@ -64,5 +65,8 @@ function paintPlayer(playerState, size, color) {
         ctx.fillRect(cell.x * size, cell.y * size, size, size)
     }
 }
-
+function handleInit(msg){
+    console.log(msg)
+}
 init()
+paintGame(gameState)
