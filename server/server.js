@@ -1,7 +1,16 @@
-const io = require('socket.io');
+const http = require('http')
+const express = require('express')
 
-io.on('connection', client => {
-    client.emit('init', {data: 'hello world'})
+const app = express()
+
+app.use(express.static(`${__dirname}/../client`))
+
+const server = http.createServer(app)
+
+server.on('error', (err) => {
+    console.error(err)
 })
-
-io.listen(process.env.PORT || 3000)
+server.listen(process.env.PORT, () => {
+    console.log("yay server is ready \\o/")
+})
+const io = require('socket.io')
